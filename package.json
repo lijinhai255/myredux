@@ -1,0 +1,24 @@
+{
+  "name": "yd-redux",
+  "version": "1.0.0",
+  "description": "1、 现有的状态管理工具有那些？",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lijinhai255/myredux.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lijinhai255/myredux/issues"
+  },
+  "homepage": "https://github.com/lijinhai255/myredux#readme",
+  "dependencies": {
+    "http-server": "^0.12.3",
+    "redux": "^4.0.5"
+  }
+}
