@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="module">
+        import { createStore, combineReducers,applyMiddleware } from './redux/index.js'
+        import counter from './reducers/counter.js'
+        import info from './reducers/info.js'
+        import timeMiddleware from './middlewares/timeMiddleware.js'
+        import loggerMiddleware from './middlewares/loggerMiddleware.js'
+        import exceptiontimeMiddleware from './middlewares/exceptiontimeMiddleware.js'
+        // import applyMiddleware from './middlewares/applyMiddleware.js'
+        const reducer = combineReducers({
+            counter,
+            info
+        })
+
+        
+        // const next = store.dispatch;
+        // const time =timeMiddleware(store)
+        // const logger = loggerMiddleware(store)
+        // const exception = exceptiontimeMiddleware(store)
+        // store.dispatch =exception(time(logger(next)));
+        const rewriteCreateStoreFunc = applyMiddleware(
+            timeMiddleware,
+            loggerMiddleware,
+            exceptiontimeMiddleware
+        )
+        const store = createStore(reducer, {}, rewriteCreateStoreFunc);
+
+        store.subscribe(() => {
+            const state = store.getState()
+            console.log(`${state.counter.count}🐻`, state)
+            console.log(`${state.info.name}🍌`)
+        })
+        store.dispatch({
+            type: 'INCREMENT',
+
+        })
+        // store.dispaction({
+        //     type: 'SET_NAME',
+        //     name:"注意疫情，带好口罩"
+
+        // })
+
+
+    </script>
+</body>
+
+</html>
