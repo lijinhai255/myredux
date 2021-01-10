@@ -17,6 +17,8 @@ export default function createStore(reducer,initialState){
         }
 
     }
+    // 状态初始化
+    dispaction({type:Symbol()})
     return {
         subscribe,
         getState,

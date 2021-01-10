@@ -16,16 +16,16 @@
         })
         
 
-        let initState = {
-                counter:{
-                    count:0
-                },
-                info:{
-                    name:"",
-                    description:""
-                }
-        }
-        const store = createStore(reducer,initState)
+        // let initState = {
+        //         counter:{
+        //             count:0
+        //         },
+        //         info:{
+        //             name:"",
+        //             description:""
+        //         }
+        // }
+        const store = createStore(reducer)
         store.subscribe(()=>{
             const state = store.getState()
             console.log(`${state.counter.count}🐻`,state)
@@ -35,11 +35,11 @@
             type: 'INCREMENT',
 
         })
-        store.dispaction({
-            type: 'SET_NAME',
-            name:"注意疫情，带好口罩"
+        // store.dispaction({
+        //     type: 'SET_NAME',
+        //     name:"注意疫情，带好口罩"
 
-        })
+        // })
     
 
     </script>
